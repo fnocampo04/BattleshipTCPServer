@@ -76,40 +76,7 @@ public class Servidor {
         tableroSv.posicionarBarcos();
         tableroSv.mostrarMiTablero();
         tableroSv.mostrarTableroPines();
-        /*Tablero mTablero = new Tablero();
-        System.out.println("\n---- COMIENZA EL JUEGO -----\n");
-        //mTablero.placeBoats();
-        mTablero.mostrarTablero();
-        /*
-        do {
-            String message = myServer.receiveMessage();
-            System.out.println("¡EL ENEMIGO HA ATACADO EN LA POSICION " + message);
-            if (mBoard.atackBoard(message)) {
-                System.out.println("¡HAS PERDIDO!");
-                fin = true;
-                myServer.sendMessage("FIN");
-            }
 
-            else {
-
-                myServer.sendMessage("AGUA");
-
-                do {
-                    System.out.print("¡AL ATAQUE!\nEscribe la coordenada, por ejemplo -> (B4): ");
-                    message = sc.nextLine();
-                } while (!message.matches("^[A-J][0-9]*$"));
-                System.out.println("¡HAS REALIZADO EL ATAQUE!");
-                myServer.sendMessage(message);
-                message = myServer.receiveMessage();
-                System.out.println(message);
-                if (message.contains("FIN")) {
-                    System.out.println("¡HAS GANADO!");
-                    fin = true;
-                }
-            }
-
-        } while (!fin);
-        */
 
     }
 
