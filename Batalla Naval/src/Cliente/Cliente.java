@@ -1,54 +1,65 @@
 package Cliente;
 
+import BatallaNaval.Tablero;
+import Servidor.Servidor;
+
 import java.io.*;
 import java.net.Socket;
+import java.util.Scanner;
 
 
-class ClienteTCP {
-    private Socket socketCliente = null;
-    private BufferedReader entrada = null;
-    private PrintWriter salida = null;
+import static Servidor.Servidor.ataque;
+import static Servidor.Servidor.recibirAtaque;
 
-    public ClienteTCP(String ip, int puerto) {
-        try {
-            socketCliente = new Socket(ip, puerto);
-            System.out.println("¡Conectado! : " + socketCliente);
-            entrada = new BufferedReader(new InputStreamReader(socketCliente.getInputStream()));
-            salida = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socketCliente.getOutputStream())), true);
-        } catch (IOException e) {
-            System.err.printf("No se pudo conectar con ip:%s / puerto:%d", ip, puerto);
-            System.exit(-1);
-        }
-    }
-
-    public void cerrarClienteTCP() {
-        try {
-            salida.close();
-            entrada.close();
-            socketCliente.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println("----// Cliente cerrado //----");
-    }
-
-    public void enviarMensaje(String linea) {
-        salida.println(linea);
-    }
-
-    public String recibirMensaje() {
-        String msg = "";
-        try {
-            msg = entrada.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return msg;
-    }
-}
 
 public class Cliente {
     public static void main(String[] args) throws IOException {
-        ClienteTCP myClient = new ClienteTCP("localhost", 55555);
+        ClienteTCP miCliente = new ClienteTCP("localhost", 55555);
+        boolean finDelJuego = false;
+        Scanner sc = new Scanner(System.in);
+        Tablero tableroCl = new Tablero(10, 5);
+
+        tableroCl.posicionarBarcos();
+
+        int quienComienza = Integer.parseInt(miCliente.recibirMensaje());
+        boolean ataqueExitoso = false;
+
+        do {
+            if (quienComienza == 1){
+
+                recibirAtaque(tableroCl, miCliente);
+
+            do{
+                ataqueExitoso = ataque(tableroCl, miCliente);
+
+            }while (ataqueExitoso == false);
+
+
+
+            } else if (quienComienza == 2) {
+
+                do{
+
+                    ataqueExitoso = ataque(tableroCl, miCliente);
+
+                }while (ataqueExitoso == false);
+
+                recibirAtaque(tableroCl, miCliente);
+            }
+
+            finDelJuego = !tableroCl.hayBarcos();
+            if(finDelJuego){
+                miCliente.enviarMensaje(String.valueOf(finDelJuego));
+            }else{
+                finDelJuego = Boolean.parseBoolean(miCliente.recibirMensaje());
+            }
+
+        }while (finDelJuego == false);
+
     }
+
+
+
+
+
 }

@@ -8,7 +8,18 @@ import java.util.*;
 
 public class Tablero {
     final int tamano, numBarcos;
-    int[][] miTablero, tableroPines;
+
+    public int[][] getMiTablero() {
+        return miTablero;
+    }
+
+    int[][] miTablero;
+
+    public int[][] getTableroPines() {
+        return tableroPines;
+    }
+
+    int[][] tableroPines;
 
 
 
@@ -60,7 +71,7 @@ public class Tablero {
         for (int numBarco = 2; numBarco<=numBarcos; numBarco++){
             boolean satisfactorio = false;
             while (satisfactorio == false){
-
+                mostrarMiTablero();
         int posicionX = 0;
         int posicionY = 0;
 
@@ -198,7 +209,7 @@ public class Tablero {
             satisfactorio= false;
 
         }
-        mostrarMiTablero();
+
         }else{
             System.out.println("La posición ya está ocupada intente nuevamente");
             satisfactorio = false;
@@ -231,4 +242,21 @@ public class Tablero {
         }
         System.out.println();
     }
+
+    public boolean hayBarcos() {
+        for (int i = 0; i < miTablero.length; i++) {
+            for (int j = 0; j < miTablero[i].length; j++) {
+                if (miTablero[i][j] == 1){
+                    return true;
+                }
+
+            }
+
+    }
+        return false;
+    }
+
+
+
+
 }
