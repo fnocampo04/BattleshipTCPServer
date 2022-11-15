@@ -26,33 +26,41 @@ public class Cliente {
 
         do {
             if (quienComienza == 1){
+                boolean seguir_recibiendo;
+                do{
+                    seguir_recibiendo = recibirAtaque(tableroCl, miCliente);
+                }while (seguir_recibiendo == true);
+                tableroCl.mostrarMiTablero();
 
-                recibirAtaque(tableroCl, miCliente);
-
+                finDelJuego = !tableroCl.hayBarcos();
+                miCliente.enviarMensaje(String.valueOf(finDelJuego));
+                tableroCl.mostrarTableroPines();
             do{
                 ataqueExitoso = ataque(tableroCl, miCliente);
 
             }while (ataqueExitoso == false);
+                tableroCl.mostrarTableroPines();
 
 
 
             } else if (quienComienza == 2) {
-
+                tableroCl.mostrarTableroPines();
                 do{
 
                     ataqueExitoso = ataque(tableroCl, miCliente);
 
                 }while (ataqueExitoso == false);
-
-                recibirAtaque(tableroCl, miCliente);
+                tableroCl.mostrarTableroPines();
+                boolean seguir_recibiendo;
+                do{
+                    seguir_recibiendo = recibirAtaque(tableroCl, miCliente);
+                }while (seguir_recibiendo == true);
+                tableroCl.mostrarMiTablero();
             }
 
-            finDelJuego = !tableroCl.hayBarcos();
-            if(finDelJuego){
-                miCliente.enviarMensaje(String.valueOf(finDelJuego));
-            }else{
-                finDelJuego = Boolean.parseBoolean(miCliente.recibirMensaje());
-            }
+
+
+
 
         }while (finDelJuego == false);
 

@@ -28,46 +28,61 @@ public class Servidor {
         tableroSv.posicionarBarcos();
 
         System.out.println("      | COMIENZA EL JUEGO |     ");
-        //tableroSv.mostrarMiTablero();
-        //tableroSv.mostrarTableroPines();
+        tableroSv.mostrarMiTablero();
+        tableroSv.mostrarTableroPines();
         int quienComienza = (int) Math.floor(Math.random()*2+1);
         System.out.println(quienComienza);
-
+        quienComienza = 1;
         miServidor.enviarMensaje(String.valueOf(quienComienza));
         System.out.println(quienComienza);
 
         boolean ataqueExitoso = false;
         do{
             if (quienComienza == 1){ //comienza el server
-
+                tableroSv.mostrarTableroPines();
             do{
 
                 ataqueExitoso = ataque(tableroSv, miServidor);
 
             }while (ataqueExitoso == false);
 
-                recibirAtaque(tableroSv, miServidor);
+                tableroSv.mostrarTableroPines();
 
+                finDelJuego = Boolean.parseBoolean(miServidor.recibirMensaje());
+                if (finDelJuego == true){
+                    break;
+                }
+
+
+                boolean seguir_recibiendo;
+                do{
+                    seguir_recibiendo = recibirAtaque(tableroSv, miServidor);
+                }while (seguir_recibiendo == true);
+
+                tableroSv.mostrarMiTablero();
 
 
             } else if (quienComienza == 2) { //comienza el cliente
 
-                recibirAtaque(tableroSv, miServidor);
+                boolean seguir_recibiendo;
+                do{
+                    seguir_recibiendo = recibirAtaque(tableroSv, miServidor);
+                }while (seguir_recibiendo == true);
 
+                tableroSv.mostrarMiTablero();
+
+                tableroSv.mostrarTableroPines();
                 do{
 
                     ataqueExitoso = ataque(tableroSv, miServidor);
 
                 }while (ataqueExitoso == false);
-
+                tableroSv.mostrarTableroPines();
 
             }
-            finDelJuego = !tableroSv.hayBarcos();
-            if(finDelJuego){
-                miServidor.enviarMensaje(String.valueOf(finDelJuego));
-            }else{
-                finDelJuego = Boolean.parseBoolean(miServidor.recibirMensaje());
-            }
+
+
+
 
 
         }while (finDelJuego == false);
@@ -75,7 +90,11 @@ public class Servidor {
     }
 
     public static boolean ataqueValido(String str, Tablero tablero) {
+        try{
+
+
         int[][] miTablero = tablero.getMiTablero();
+
             if (str.length()>2){
                 String letra = String.valueOf(str.charAt(0));
                 if(str.charAt(1) == '1' && str.charAt(2) == '0'){
@@ -85,6 +104,8 @@ public class Servidor {
                         if(miTablero[posX][posY] == 0 || miTablero[posX][posY] == 1){
                             return true;
                         }
+                    }else{
+                        return false;
                     }
 
                 }else {
@@ -111,6 +132,11 @@ public class Servidor {
             }
 
         return false;
+
+        }catch (Exception e){
+            return false;
+        }
+
 
     }
 
@@ -191,7 +217,7 @@ public class Servidor {
     }
 
 
-    public static void recibirAtaque(Tablero tableroCl, Object clienteServer){
+    public static boolean recibirAtaque(Tablero tableroCl, Object clienteServer){
 
         if (clienteServer instanceof ClienteTCP) {
             System.out.println("¡Es el turno del enemigo!");
@@ -212,18 +238,24 @@ public class Servidor {
                     tableroCl.getMiTablero()[posX][posY] = 3;
                     miCliente.enviarMensaje("FALLO");
                     System.out.println("¡EL ENEMIGO HA ATACADO EN LA POSICION " + mensaje);
+                    return false;
                 } else if (tableroCl.getMiTablero()[posX][posY] == 1) {
                     tableroCl.getMiTablero()[posX][posY] = 2;
                     miCliente.enviarMensaje("IMPACTO");
                     System.out.println("¡EL ENEMIGO HA ATACADO EN LA POSICION " + mensaje);
+                    return false;
                 }else{
                     miCliente.enviarMensaje("ERROR");
+                    System.out.println("ERROR EN EL ATAQUE DEL ENEMIGO");
+                    return true;
                 }
 
             }else{
                 miCliente.enviarMensaje("ERROR");
+                System.out.println("ERROR EN EL ATAQUE DEL ENEMIGO");
+                return true;
             }
-            tableroCl.mostrarMiTablero();
+            //tableroCl.mostrarMiTablero();
 
         } else if (clienteServer instanceof ServidorTCP) {
             System.out.println("¡Es el turno del enemigo!");
@@ -244,20 +276,27 @@ public class Servidor {
                     tableroCl.getMiTablero()[posX][posY] = 3;
                     miServidor.enviarMensaje("FALLO");
                     System.out.println("¡EL ENEMIGO HA ATACADO EN LA POSICION " + mensaje);
+                    return false;
                 } else if (tableroCl.getMiTablero()[posX][posY] == 1) {
                     tableroCl.getMiTablero()[posX][posY] = 2;
                     miServidor.enviarMensaje("IMPACTO");
                     System.out.println("¡EL ENEMIGO HA ATACADO EN LA POSICION " + mensaje);
+                    return false;
                 }else{
                     miServidor.enviarMensaje("ERROR");
+                    System.out.println("ERROR EN EL ATAQUE DEL ENEMIGO");
+                    return true;
                 }
 
             }else{
                 miServidor.enviarMensaje("ERROR");
+                System.out.println("ERROR EN EL ATAQUE DEL ENEMIGO");
+                return true;
             }
-            tableroCl.mostrarMiTablero();
+            //tableroCl.mostrarMiTablero();
 
         }
+        return false;
 
 
     }

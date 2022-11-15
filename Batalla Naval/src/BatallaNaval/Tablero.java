@@ -82,7 +82,11 @@ public class Tablero {
             int coordenadaX = 0;
             System.out.println("Por favor ingrese la letra correspondiente a la fila (A - J): ");
             Scanner sc = new Scanner(System.in);
-            char c = sc.next().charAt(0);
+            String sc1 = sc.nextLine();
+            if (sc1.length() <2){
+
+            char c = sc1.charAt(0);
+
             for (char ch = 'A'; ch <='J'; ch++){
                 if (c == ch){
                     posicionX = coordenadaX;
@@ -90,14 +94,20 @@ public class Tablero {
                 }
                 coordenadaX++;
             }
+            }else{
+                bool = true;
+            }
         }
         while (bool2){
             int coordenadaY = 0;
-            System.out.println("Por favor ingrese el número correspondiente a la columna (1 - 10): ");
+
             Scanner sc = new Scanner(System.in);
             boolean esNumero = false;
             int sn = 0;
             while (esNumero == false){
+                try{
+                    System.out.println("Por favor ingrese el número correspondiente a la columna (1 - 10): ");
+
                 String s = sc.nextLine();
                 esNumero = s.chars().allMatch( Character::isDigit );
                 if (esNumero == true){
@@ -105,6 +115,9 @@ public class Tablero {
                 }else{
                     System.out.println("¡Debe ser un número!");
                     System.out.println("Digite la columna nuevamente");
+                }
+                }catch (NumberFormatException e){
+                    esNumero = false;
                 }
             }
 
