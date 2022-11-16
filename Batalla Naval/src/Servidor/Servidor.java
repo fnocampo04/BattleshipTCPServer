@@ -27,18 +27,19 @@ public class Servidor {
 
         tableroSv.posicionarBarcos();
 
-        System.out.println("      | COMIENZA EL JUEGO |     ");
-        tableroSv.mostrarMiTablero();
-        tableroSv.mostrarTableroPines();
+        System.out.println(ConsoleColors.GREEN + "      | COMIENZA EL JUEGO |     "+ ConsoleColors.RESET);
+        //tableroSv.mostrarMiTablero();
+        //tableroSv.mostrarTableroPines();
         int quienComienza = (int) Math.floor(Math.random()*2+1);
-        System.out.println(quienComienza);
-        quienComienza = 1;
-        miServidor.enviarMensaje(String.valueOf(quienComienza));
-        System.out.println(quienComienza);
 
-        boolean ataqueExitoso = false;
+        quienComienza = 2;
+
+        miServidor.enviarMensaje(String.valueOf(quienComienza));
+
+        boolean ataqueExitoso;
         do{
             if (quienComienza == 1){ //comienza el server
+                tableroSv.mostrarMiTablero();
                 tableroSv.mostrarTableroPines();
             do{
 
@@ -46,10 +47,12 @@ public class Servidor {
 
             }while (ataqueExitoso == false);
 
+                tableroSv.mostrarMiTablero();
                 tableroSv.mostrarTableroPines();
 
                 finDelJuego = Boolean.parseBoolean(miServidor.recibirMensaje());
-                if (finDelJuego == true){
+                if(finDelJuego == true){
+                    System.out.println("¡Usted ha ganado!");
                     break;
                 }
 
@@ -59,10 +62,18 @@ public class Servidor {
                     seguir_recibiendo = recibirAtaque(tableroSv, miServidor);
                 }while (seguir_recibiendo == true);
 
-                tableroSv.mostrarMiTablero();
+                finDelJuego = !tableroSv.hayBarcos();
+                miServidor.enviarMensaje(String.valueOf(finDelJuego));
+                if(finDelJuego == true){
+                    System.out.println("Has perdido :c");
+                    break;
+                }
 
 
             } else if (quienComienza == 2) { //comienza el cliente
+
+                tableroSv.mostrarMiTablero();
+                tableroSv.mostrarTableroPines();
 
                 boolean seguir_recibiendo;
                 do{
@@ -70,17 +81,31 @@ public class Servidor {
                 }while (seguir_recibiendo == true);
 
                 tableroSv.mostrarMiTablero();
-
                 tableroSv.mostrarTableroPines();
+
+                finDelJuego = !tableroSv.hayBarcos();
+                miServidor.enviarMensaje(String.valueOf(finDelJuego));
+                if(finDelJuego == true){
+                    System.out.println("Has perdido :c");
+                    break;
+                }
+
+
+
                 do{
 
                     ataqueExitoso = ataque(tableroSv, miServidor);
 
                 }while (ataqueExitoso == false);
-                tableroSv.mostrarTableroPines();
+
+
+                finDelJuego = Boolean.parseBoolean(miServidor.recibirMensaje());
+                if(finDelJuego == true){
+                    System.out.println("¡Usted ha ganado!");
+                    break;
+                }
 
             }
-
 
 
 
@@ -118,7 +143,7 @@ public class Servidor {
             String digito = String.valueOf(str.charAt(1));
                 if (letra.matches(".*[A-J].*")){
                         if (digito.chars().allMatch( Character::isDigit )){
-                            int digito2 =Integer.parseInt(digito);
+                            int digito2 =Integer.parseInt(digito)-1;
                             int posX = str.charAt(0) - 'A';
                             int posY = digito2;
                             if(miTablero[posX][posY] == 0 || miTablero[posX][posY] == 1){
@@ -174,7 +199,7 @@ public class Servidor {
             else if (recibido.contains("FALLO")){
                 tableroSv.getTableroPines()[posX][posY] = 3;
             }
-            tableroSv.mostrarTableroPines();
+
             return true;
         } else if (clienteServer instanceof ClienteTCP) {
             ClienteTCP miCliente = (ClienteTCP) clienteServer;
@@ -209,7 +234,7 @@ public class Servidor {
             else if (recibido.contains("FALLO")){
                 tableroSv.getTableroPines()[posX][posY] = 3;
             }
-            tableroSv.mostrarTableroPines();
+
             return true;
         }
         return false;
@@ -296,7 +321,7 @@ public class Servidor {
             //tableroCl.mostrarMiTablero();
 
         }
-        return false;
+        return true;
 
 
     }

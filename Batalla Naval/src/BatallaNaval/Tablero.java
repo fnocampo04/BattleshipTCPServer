@@ -45,21 +45,31 @@ public class Tablero {
     }
     public void mostrarMiTablero(){
 
-        System.out.println("          | MI TABLERO |        ");
+        System.out.println("            "+ ConsoleColors.CYAN_BOLD_BRIGHT + "MI TABLERO" + ConsoleColors.RESET);
 
         char ch = 'A';
-        System.out.printf("  ");
+        System.out.printf(ConsoleColors.CYAN_BACKGROUND + "   " + ConsoleColors.RESET);
         for(int i = 1; i <= 10; i++)
         {
-            System.out.printf("  " + i);
+            System.out.printf( ConsoleColors.BLACK_BACKGROUND + " " + i + " " + ConsoleColors.RESET);
         }
+
         System.out.println();
-        System.out.println("   ------------------------------"); // Separador
+        //System.out.println(ConsoleColors.BLACK_BACKGROUND +"                                   " + ConsoleColors.RESET); // Separador
         for (int i = 0; i < miTablero.length; i++) {
-            System.out.printf(ch + " | "); // Pone la letra en la fila
+            System.out.printf(ConsoleColors.BLACK_BACKGROUND + " " + ch + " " + ConsoleColors.RESET); // Pone la letra en la fila
 
             for (int j = 0; j < miTablero[i].length; j++) {
-                System.out.print(miTablero[i][j] + "  ");
+                if(miTablero[i][j] == 0){
+                    System.out.print(ConsoleColors.BLUE_BACKGROUND + " " + miTablero[i][j] + " " + ConsoleColors.RESET);
+                } else if (miTablero[i][j] == 1) {
+                    System.out.print(ConsoleColors.WHITE_BACKGROUND_BRIGHT + " " + miTablero[i][j] + " " + ConsoleColors.RESET);
+                } else if (miTablero[i][j] == 2) {
+                    System.out.print(ConsoleColors.RED_BACKGROUND_BRIGHT + " " + miTablero[i][j] + " " + ConsoleColors.RESET);
+                } else if (miTablero[i][j] == 3) {
+                    System.out.print(ConsoleColors.GREEN_BACKGROUND_BRIGHT + " " + miTablero[i][j] + " " + ConsoleColors.RESET);
+                }
+                //System.out.print(miTablero[i][j] + "  ");
             }
             ch++; // Siguiente letra
             System.out.println();
@@ -145,17 +155,22 @@ public class Tablero {
                     int contador = 1;
                     for (int i = posicionX-1;contador<numBarco; i--){
                         if (miTablero[i][posicionY]==0){
-                            miTablero[i][posicionY] = 1;
                             satisfactorio= true;
                         }else{
-                            System.out.println("Posicion inválida");
-                            miTablero[posicionX][posicionY]= 0;
                             satisfactorio= false;
+                            System.out.println("Posicion inválida");
+                            miTablero[posicionX][posicionY] = 0;
                             break;
                         }
                         contador++;
                     }
-
+                    contador = 1;
+                    if(satisfactorio){
+                        for (int i = posicionX-1;contador<numBarco; i--){
+                                miTablero[i][posicionY] = 1;
+                            contador++;
+                        }
+                    }
                     break;
                 case "B":
                     // Abajo
@@ -163,49 +178,69 @@ public class Tablero {
                     contador = 1;
                     for (int i = posicionX+1;contador<numBarco; i++){
                         if (miTablero[i][posicionY]==0){
-                            miTablero[i][posicionY] = 1;
                             satisfactorio= true;
                         }else{
-                            System.out.println("Posicion inválida");
-                            miTablero[posicionX][posicionY]= 0;
                             satisfactorio= false;
+                            System.out.println("Posicion inválida");
+                            miTablero[posicionX][posicionY] = 0;
                             break;
                         }
                         contador++;
+                    }
+                    contador = 1;
+                    if(satisfactorio){
+                        for (int i = posicionX+1;contador<numBarco; i++){
+                            miTablero[i][posicionY] = 1;
+                            contador++;
+                        }
                     }
                     break;
 
                 case "I" :
                     // Izquierda
+
                     contador = 1;
                     for (int i = posicionY-1;contador<numBarco; i--){
                         if (miTablero[posicionX][i]==0){
-                            miTablero[posicionX][i] = 1;
                             satisfactorio= true;
                         }else{
-                            System.out.println("Posicion inválida");
-                            miTablero[posicionX][posicionY]= 0;
                             satisfactorio= false;
+                            System.out.println("Posicion inválida");
+                            miTablero[posicionX][posicionY] = 0;
                             break;
                         }
                         contador++;
+                    }
+                    contador = 1;
+                    if(satisfactorio){
+                        for (int i = posicionY-1;contador<numBarco; i--){
+                            miTablero[posicionX][i] = 1;
+                            contador++;
+                        }
                     }
                     break;
 
                 case "D" :
                     // Derecha
+
                     contador = 1;
                     for (int i = posicionY+1;contador<numBarco; i++){
                         if (miTablero[posicionX][i]==0){
-                            miTablero[posicionX][i] = 1;
                             satisfactorio= true;
                         }else{
-                            System.out.println("Posicion inválida");
-                            miTablero[posicionX][posicionY]= 0;
                             satisfactorio= false;
+                            System.out.println("Posicion inválida");
+                            miTablero[posicionX][posicionY] = 0;
                             break;
                         }
                         contador++;
+                    }
+                    contador = 1;
+                    if(satisfactorio){
+                        for (int i = posicionY+1;contador<numBarco; i++){
+                            miTablero[posicionX][i] = 1;
+                            contador++;
+                        }
                     }
                     break;
 
@@ -235,26 +270,36 @@ public class Tablero {
 
     public void mostrarTableroPines(){
 
-        System.out.println("        | TABLERO ATAQUE |      ");
+        System.out.println("          "+ ConsoleColors.RED_BOLD_BRIGHT + "TABLERO ATAQUE" + ConsoleColors.RESET);
+
         char ch = 'A';
-        System.out.printf("  ");
+        System.out.printf(ConsoleColors.RED_BACKGROUND + "   " + ConsoleColors.RESET);
         for(int i = 1; i <= 10; i++)
         {
-            System.out.printf("  " + i);
+            System.out.printf( ConsoleColors.BLACK_BACKGROUND + " " + i + " " + ConsoleColors.RESET);
         }
+
         System.out.println();
-        System.out.println("   ------------------------------"); // Separador
+
         for (int i = 0; i < tableroPines.length; i++) {
-            System.out.printf(ch + " | "); // Pone la letra en la fila
+            System.out.printf(ConsoleColors.BLACK_BACKGROUND + " " + ch + " " + ConsoleColors.RESET); // Pone la letra en la fila
 
             for (int j = 0; j < tableroPines[i].length; j++) {
-                System.out.print(tableroPines[i][j] + "  ");
+                if(tableroPines[i][j] == 0){
+                    System.out.print(ConsoleColors.BLUE_BACKGROUND + " " + tableroPines[i][j] + " " + ConsoleColors.RESET);
+                } else if (tableroPines[i][j] == 1) {
+                    System.out.print(ConsoleColors.WHITE_BACKGROUND_BRIGHT + " " + tableroPines[i][j] + " " + ConsoleColors.RESET);
+                } else if (tableroPines[i][j] == 2) {
+                    System.out.print(ConsoleColors.RED_BACKGROUND_BRIGHT + " " + tableroPines[i][j] + " " + ConsoleColors.RESET);
+                } else if (tableroPines[i][j] == 3) {
+                    System.out.print(ConsoleColors.GREEN_BACKGROUND_BRIGHT + " " + tableroPines[i][j] + " " + ConsoleColors.RESET);
+                }
+
             }
             ch++; // Siguiente letra
             System.out.println();
         }
-        System.out.println();
-    }
+        System.out.println();}
 
     public boolean hayBarcos() {
         for (int i = 0; i < miTablero.length; i++) {
