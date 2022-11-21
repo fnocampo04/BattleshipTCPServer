@@ -14,9 +14,29 @@ import static Servidor.Servidor.recibirAtaque;
 
 public class Cliente {
     public static void main(String[] args) throws IOException {
-        ClienteTCP miCliente = new ClienteTCP("localhost", 55555);
+
         boolean finDelJuego = false;
         Scanner sc = new Scanner(System.in);
+
+        System.out.println("Ingrese la ip del servidor: ");
+        String IP = sc.nextLine();
+        System.out.println("Ingrese el puerto: ");
+        boolean puertocorrecto = false;
+        String entradaPUERTO;
+        int PUERTO = 0;
+        while (!puertocorrecto){
+            entradaPUERTO = sc.nextLine();
+            if(entradaPUERTO.chars().allMatch( Character::isDigit )){
+                PUERTO = Integer.parseInt(entradaPUERTO);
+                puertocorrecto = true;
+            }else{
+                System.out.println("ENTRADA INVÁLIDA, INTENTE NUEVAMENTE");
+                puertocorrecto = false;
+            }
+        }
+        System.out.println("Intentando conectar...");
+        ClienteTCP miCliente = new ClienteTCP(IP, PUERTO);
+
         Tablero tableroCl = new Tablero(10, 5);
 
         tableroCl.posicionarBarcos();

@@ -19,20 +19,33 @@ public class Servidor {
     }
 
     public static void Juego() {
-        ServidorTCP miServidor = new ServidorTCP(55555);
+
         boolean finDelJuego = false;
         Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese el puerto en el que alojará el servidor: ");
+        boolean puertocorrecto = false;
+        String entradaPUERTO;
+        int PUERTO = 0;
+        while (!puertocorrecto){
+            entradaPUERTO = sc.nextLine();
+            if(entradaPUERTO.chars().allMatch( Character::isDigit )){
+                PUERTO = Integer.parseInt(entradaPUERTO);
+                puertocorrecto = true;
+            }else{
+                System.out.println("ENTRADA INVÁLIDA, INTENTE NUEVAMENTE");
+                puertocorrecto = false;
+            }
+        }
+
+
+        ServidorTCP miServidor = new ServidorTCP(PUERTO);
         Tablero tableroSv = new Tablero(10, 5);
 
 
         tableroSv.posicionarBarcos();
 
-        System.out.println(ConsoleColors.GREEN + "      | COMIENZA EL JUEGO |     "+ ConsoleColors.RESET);
-        //tableroSv.mostrarMiTablero();
-        //tableroSv.mostrarTableroPines();
+        System.out.println("COMIENZA EL JUEGO");
         int quienComienza = (int) Math.floor(Math.random()*2+1);
-
-        quienComienza = 2;
 
         miServidor.enviarMensaje(String.valueOf(quienComienza));
 
@@ -280,7 +293,7 @@ public class Servidor {
                 System.out.println("ERROR EN EL ATAQUE DEL ENEMIGO");
                 return true;
             }
-            //tableroCl.mostrarMiTablero();
+
 
         } else if (clienteServer instanceof ServidorTCP) {
             System.out.println("¡Es el turno del enemigo!");
@@ -318,7 +331,7 @@ public class Servidor {
                 System.out.println("ERROR EN EL ATAQUE DEL ENEMIGO");
                 return true;
             }
-            //tableroCl.mostrarMiTablero();
+
 
         }
         return true;
