@@ -49,8 +49,11 @@ De forma general el juego abarca a personas de todas las edades que deseen diver
 | Fecha | Problema | Solución |
 | --- | --- | --- |
 |03/11/2022 | Error en el método posicionar barcos | La solución fue ingresar condiciones “IF” para asegurar que esté entre el rango de las columnas (A, J) y en las filas que no pase de (1,10), agregando la excepción de que no se salga de la matriz indicada para el tablero. |
-|08/11/2022 | | |
-|10/11/2022 | Al momento de atacar cuenta 3 jugadas y termina la conexión del servidor | |
-|15/11/2022 | Encontramos que las posiciones J9 e I9 al momento de atacar nos arroja posición inválida. | |
-|17/11/2022 | Fin del juego no funciona. | |
+|03/11/2022 | Codigo innecesario excesiamente largo  | Se optimizo el codigo y se iliminó algunos comentarios ruido que no eran muy relevantes |
+|05/11/2022| Errores al momento de atacar generan excepciones en el codigo | creamos filtros con condicionales IF, try catch, bucles entre otros para evitar errores en el ataque, el metodo ataqueValido() fue añadido |
+|10/11/2022 | Al momento de atacar cuenta 3 jugadas y termina la conexión del servidor | Fin del juego estaba habilitado en todo momento, despues de que se realizara un ataque del servidor al cliente, y este recibiera el ataque, de forma mas precisa encontramos el problema despues de realizar una jugada, el error fue corregido modificando algunos parametros del fin del juego  |
+|15/11/2022 | Encontramos que las posiciones J9 e I9 al momento de atacar nos arroja posición inválida. | se corrige la ubicación de la columna ingresada, el error se encontraba en que al evaluar, si la columna era valida estaba evaluando en la siguiente columna, por tanto no se podia posicionar barcos apartir de la columna 9 o que tuvieran una posición ya ocupada en la siguiente columna. Particularmente el error se encontraba en la clase tablero "en el metodo posicionarBarcos()" |
+| 15/11/2022 | juego en consola no permite distinguir de forma armonica algunas jugadas realizadas por el usuario | Añadimos console colors para poder apreciar las diferencias significativas al momento de realizar ataques y recibirlos |
+|17/11/2022 | Fin del juego no funciona. | Se cambió la lógica en la comunicación de fin del juego entre cliente y servidor, evitando que se envie el mismo mensaje al mismo tiempo y no haya quien lo reciba, entre otros inconvenientes al momentos de avisar cuando se acabo la partida. Particularmente los cambios fueron realizados en la clase servidor y en la clase cliente  |
+|20/11/2022 | La ip y el puerto solo pueden ser ingresados desde la consola | Permitimos al usuario que va a ser el servidor escoger su puerto, haciendo uso de su propia ip, y al usuario que se le asigne el cliente ingresar la ip del servidor del cual desea conectarse |
 
