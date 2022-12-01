@@ -1,6 +1,8 @@
+## Proyecto final programación en Java
+
 # Batalla Naval
 ![logo](https://github.com/fnocampo04/Proyecto-final-programacion-en-Java/blob/main/Batalla%20Naval/logo.png)
-## Proyecto final programación en Java
+
 ## Descripción del Juego
 
 ![logo](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGPPexbjYw9RScCXDvKZNIPd4RBMaJimOWuw&usqp=CAU)
