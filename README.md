@@ -90,6 +90,13 @@ Para este momento ya los dos jugadores tanto el servidor como el cliente ponen a
 |17/11/2022 | Fin del juego no funciona. | Se cambió la lógica en la comunicación de fin del juego entre cliente y servidor, evitando que se envie el mismo mensaje al mismo tiempo y no haya quien lo reciba, entre otros inconvenientes al momentos de avisar cuando se acabo la partida. Particularmente los cambios fueron realizados en la clase servidor y en la clase cliente  |
 |20/11/2022 | La ip y el puerto solo pueden ser ingresados desde la consola | Permitimos al usuario que va a ser el servidor escoger su puerto, haciendo uso de su propia ip, y al usuario que se le asigne el cliente ingresar la ip del servidor del cual desea conectarse |
 
+## Bibliografia 
+- https://www.codejava.net/java-se/networking/java-socket-server-examples-tcp-ip
+- https://en.wikipedia.org/wiki/Battleship_(game)
+- https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
+- http://puntocomnoesunlenguaje.blogspot.com/2012/12/matriz-en-java.html
+
+
 ## Authors
 
 - [@TeoZapata](https://github.com/TeoZapata)
