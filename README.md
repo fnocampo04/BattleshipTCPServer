@@ -16,6 +16,7 @@ Batalla naval (también conocido como BattleShip) es un juego clásico de adivin
 | Captura de Excepciones | es inevitable que algún código no genere un error, por eso la captura de excepciones nos brinda anticiparnos a estos casos para manejarlos y darles un manejo más ordenado especificando la funcionalidad que se les puede brindar, también las usamos para que los jugadores indique bien las posiciones tanto de los ataque como la de los barcos.|
 | métodos | Son parte del código que cumplen con una función específica para el programa, ayudando a la reutilización y que las líneas sean más compactas.|
 | Depurar | Es el manejo que le damos a los errores, para que cumplan cierta función y no permita que nuestro programa deje de funcionar.|
+| Socket | Socket designa un concepto abstracto por el cual dos procesos (posiblemente situados en computadoras distintas) pueden intercambiar cualquier flujo de datos, generalmente de manera fiable y ordenada. Además es una estructura de datos que permite que dos máquinas se comuniquen entre ellas. |
 
 ## Una descripción detallada de las actividades en las cuales se involucró cada integrante del equipo
 | Integrante | Actividad |
@@ -95,7 +96,7 @@ Para este momento ya los dos jugadores tanto el servidor como el cliente ponen a
 - https://en.wikipedia.org/wiki/Battleship_(game)
 - https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
 - http://puntocomnoesunlenguaje.blogspot.com/2012/12/matriz-en-java.html
-
+- https://es.wikipedia.org/wiki/Socket_de_Internet
 
 ## Authors
 
