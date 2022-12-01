@@ -56,17 +56,24 @@ De forma general el juego abarca a personas de todas las edades que deseen diver
 
 - Se debe crear un tablero de tamaño 10x10 a cada uno de los jugadores para que ubiquen los barcos, adicionalmente otro para que almacene sus jugadas.
 
+![logo](https://github.com/fnocampo04/Proyecto-final-programacion-en-Java/blob/main/Batalla%20Naval/creacionTablero.png)
+
 ### El programa debe brindar libertad al momento de elegir la posición de los barcos, de manera que se cumplan las siguientes restricciones:
  - Los barcos a posicionar son de tamaño de 5, 4, 3 y 2 casillas cada uno.
  - Se puede elegir la posición del barco en el tablero y la dirección en la que desee el usuario.
 - Los barcos no pueden salir del límite del tablero.
 - Los barcos no se pueden cruzar entre ellos, ni ocupar una misma casilla simultáneamente.
 - Las posiciones a ingresar deben ser casillas existentes en el tablero
+
+![logo](https://github.com/fnocampo04/Proyecto-final-programacion-en-Java/blob/main/Batalla%20Naval/posicionBarcos.png)
+
 ### Una vez posicionados los barcos, se sortea quien inicia el juego aleatoriamente
 - Al atacar el usuario que le corresponde, deberá indicar en su turno la posición que desea descubrir en su ataque (fila, columna), mientras que el otro jugador debe esperar su turno.
 
 - Después del ataque el programa les indica a los dos jugadores como sucedió la acción; al que atacó le imprime la posición atacada en el tablero y un mensaje si FALLÓ, hubo IMPACTO o un ERROR en el ataque, adicionalmente al que recibe el ataque se le informa la posición y se actualiza en su tablero.
 - El juego se termina cuando ya no se encuentran barcos disponibles para ataque en el tablero de alguno de los jugadores, así pierde el que no tenga e inmediatamente gana el otro.
+
+![logo](https://github.com/fnocampo04/Proyecto-final-programacion-en-Java/blob/main/Batalla%20Naval/FinJuego.png)
 
 ## Arquitectura de la solución
 - Una descripción en lenguaje natural de cómo decidió el equipo abordar el problema.
