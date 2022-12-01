@@ -68,8 +68,8 @@ De forma general el juego abarca a personas de todas las edades que deseen diver
 - El juego se termina cuando ya no se encuentran barcos disponibles para ataque en el tablero de alguno de los jugadores, así pierde el que no tenga e inmediatamente gana el otro.
 
 ## Arquitectura de la solución
-** Una descripción en lenguaje natural de cómo decidió el equipo abordar el problema.
-Diagrama de bloques, de clases, de flujo, de interfaz, etc.
+- Una descripción en lenguaje natural de cómo decidió el equipo abordar el problema.
+- Diagrama de bloques, de clases, de flujo, de interfaz, etc.
 
 
 ## Ensayos y Solución a errores
