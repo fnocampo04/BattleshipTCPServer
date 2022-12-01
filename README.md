@@ -92,5 +92,5 @@ Para este momento ya los dos jugadores tanto el servidor como el cliente ponen a
 
 ## Authors
 
-- [@octokatherine](https://github.com/TeoZapata)
-- [@octokatherine](https://github.com/fnocampo04)
+- [@fnocampo04](https://github.com/TeoZapata)
+- [@TeoZapata](https://github.com/fnocampo04)
