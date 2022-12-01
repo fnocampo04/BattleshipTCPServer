@@ -5,10 +5,9 @@
 
 ## Descripción del Juego
 
-![logo](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGPPexbjYw9RScCXDvKZNIPd4RBMaJimOWuw&usqp=CAU)
-
-
 Batalla naval (también conocido como BattleShip) es un juego clásico de adivinanzas de tipo estrategia para dos jugadores. Se juega en tableros (generalmente de tamaño 10x10) en los que se marca la flota de buques de guerra de cada jugador. Las ubicaciones de las flotas están ocultas para el otro jugador. Se juega con dos tableros entre las dos personas, en el que el ataque de uno se efectúa en el del otro y se lleva un registro de las jugadas en otro tablero. Gana el jugador que destruya los barcos del contrincante.
+
+![logo](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGPPexbjYw9RScCXDvKZNIPd4RBMaJimOWuw&usqp=CAU)
 
 ## Glosario de términos
 | Término | Definición |
