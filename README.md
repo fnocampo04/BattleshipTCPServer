@@ -8,17 +8,14 @@
 Batalla naval (también conocido como BattleShip) es un juego clásico de adivinanzas de tipo estrategia para dos jugadores. Se juega en tableros (generalmente de tamaño 10x10) en los que se marca la flota de buques de guerra de cada jugador. Las ubicaciones de las flotas están ocultas para el otro jugador. Se juega con dos tableros entre las dos personas, en el que el ataque de uno se efectúa en el del otro y se lleva un registro de las jugadas en otro tablero. Gana el jugador que destruya los barcos del contrincante.
 
 ## Glosario de términos
-Servidor -> definimos como servidor en nuestro caso, como la parte del codigo que permite recibir conexión de otra computadora conectado en la misma red local, dando la particularidad que el servidor se modificó para que sea uno de los jugadores.
-
-Cliente -> llamamos cliente a una clase en particular que permite conectarse con otra maquina en este caso el servidor, el cual hace peticiones de datos en la misma red para que funcionen sincrónicamente, también lo modificamos para que sea uno de los jugadores.
-
-Arreglos -> Son colecciones de datos ordenados que tienen una identificación o dirección especifica la cual nos permite hacer operaciones, modificaciones y más opciones para seguir con la dinámica del juego, los arreglos en este juego son utilizadas para crear tanto el tablero de ataque individual y el tablero de posiciones de los barcos.
-
-Captura de Excepciones -> es inevitable que algún código no genere un error, por eso la captura de excepciones nos brinda anticiparnos a estos casos para manejarlos y darles un manejo más ordenado especificando la funcionalidad que se les puede brindar, también las usamos para que los jugadores indique bien las posiciones tanto de los ataque como la de los barcos.
-
-métodos -> son parte del cogido que cumplen con una función específica para el programa, ayudando a la reutilización y que las líneas sean más compactas.
-
-Depurar -> es el manejo que le damos a los errores, para que cumplan cierta función y no permita que nuestro programa deje de funcionar.
+| Termino | Definición |
+| --- | --- |
+| Servidor | definimos como servidor en nuestro caso, como la parte del codigo que permite recibir conexión de otra computadora conectado en la misma red local, dando la particularidad que el servidor se modificó para que sea uno de los jugadores.|
+| Cliente | llamamos cliente a una clase en particular que permite conectarse con otra maquina en este caso el servidor, el cual hace peticiones de datos en la misma red para que funcionen sincrónicamente, también lo modificamos para que sea uno de los jugadores.|
+| Arreglos | Son colecciones de datos ordenados que tienen una identificación o dirección especifica la cual nos permite hacer operaciones, modificaciones y más opciones para seguir con la dinámica del juego, los arreglos en este juego son utilizadas para crear tanto el tablero de ataque individual y el tablero de posiciones de los barcos.|
+| Captura de Excepciones | es inevitable que algún código no genere un error, por eso la captura de excepciones nos brinda anticiparnos a estos casos para manejarlos y darles un manejo más ordenado especificando la funcionalidad que se les puede brindar, también las usamos para que los jugadores indique bien las posiciones tanto de los ataque como la de los barcos.|
+| métodos | son parte del cogido que cumplen con una función específica para el programa, ayudando a la reutilización y que las líneas sean más compactas.|
+| Depurar | es el manejo que le damos a los errores, para que cumplan cierta función y no permita que nuestro programa deje de funcionar.|
 
 ## Quién tiene el problema
 
@@ -26,7 +23,7 @@ De forma general el juego abarca a personas de todas las edades que deseen diver
 
 ## descripción detallada del problema, usando requerimientos, casos de uso, historias de usuario, o alguna otra herramienta que permita la descripción detallada del mismo.
 
-![logo](https://i.pinimg.com/474x/8a/13/0d/8a130d22081c9b169b56ed3694704716--vocabulary-practice-teaching-vocabulary.jpg)
+![logo]([https://ibb.co/Rpd8Vf7][img]https://i.ibb.co/svz7Mnt/A-1.png)
 
 ### Las condiciones que deben ser cubiertas por el análisis y diseño del proyecto se resumen en las siguientes:
 - Como generalidad, se pueden conectar dos jugadores de forma remota mediante una conexión punto a punto en el que un jugador es el servidor que aloja la conexión y otro es el cliente que se conecta.
