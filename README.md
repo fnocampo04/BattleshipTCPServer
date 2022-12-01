@@ -1,5 +1,5 @@
 # Batalla Naval
-![logo](https://www.ultraboardgames.com/img/slideshow/battleship.jpg)
+![logo](https://github.com/fnocampo04/Proyecto-final-programacion-en-Java/blob/main/Batalla%20Naval/logo.png)
 ## Proyecto final programación en Java
 ## Descripción del Juego
 
