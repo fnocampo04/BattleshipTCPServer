@@ -69,7 +69,13 @@ De forma general el juego abarca a personas de todas las edades que deseen diver
 
 ## Arquitectura de la solución
 - Una descripción en lenguaje natural de cómo decidió el equipo abordar el problema.
+
+Al momento de abordar el problema sabíamos que tenemos que crear una conexión entre cliente y servidor para poder jugar en dos computadores diferentes sin dar la posibilidad de que cada jugador vea el tablero del enemigo.
+Como inicio fundamental se debe establecer la comunicación a partir de los sockets permitiendo el flujo de datos o en este caso intercambio de ataques, para ello se debe permitir recibir y enviar mensaje en ambos extremos, por ello la creacion de los metodos especiales para esta tareas es indispensable particularmente son llamados enviarMensaje() y recibirMensaje(), una vez concluido la conexión debemos empezar por crear un tablero vacío que nuestra solución fue hacer una matriz de 10*10 que contenga solo ceros para dar la oportunidad al jugador de que ponga sus barcos en posiciones diferentes.
+Para este momento ya los dos jugadores tanto el servidor como el cliente ponen al mismo tiempo la posición del barco, teniendo en cuenta el programa comprueba las posiciones válidas, algo para destacar es que el juego no inicia si algun jugador le falta barcos por poner, evitandola generación de errores y posibles caidas del juego.
+
 - Diagrama de bloques, de clases, de flujo, de interfaz, etc.
+![logo](https://github.com/fnocampo04/Proyecto-final-programacion-en-Java/blob/main/Batalla%20Naval/DiagramaClases.jpeg)
 
 
 ## Ensayos y Solución a errores
@@ -84,3 +90,7 @@ De forma general el juego abarca a personas de todas las edades que deseen diver
 |17/11/2022 | Fin del juego no funciona. | Se cambió la lógica en la comunicación de fin del juego entre cliente y servidor, evitando que se envie el mismo mensaje al mismo tiempo y no haya quien lo reciba, entre otros inconvenientes al momentos de avisar cuando se acabo la partida. Particularmente los cambios fueron realizados en la clase servidor y en la clase cliente  |
 |20/11/2022 | La ip y el puerto solo pueden ser ingresados desde la consola | Permitimos al usuario que va a ser el servidor escoger su puerto, haciendo uso de su propia ip, y al usuario que se le asigne el cliente ingresar la ip del servidor del cual desea conectarse |
 
+## Authors
+
+- [@octokatherine](https://github.com/TeoZapata)
+- [@octokatherine](https://github.com/fnocampo04)
