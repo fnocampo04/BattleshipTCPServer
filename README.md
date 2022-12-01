@@ -20,13 +20,13 @@ Batalla naval (también conocido como BattleShip) es un juego clásico de adivin
 | Depurar | Es el manejo que le damos a los errores, para que cumplan cierta función y no permita que nuestro programa deje de funcionar.|
 | Socket | Socket designa un concepto abstracto por el cual dos procesos (posiblemente situados en computadoras distintas) pueden intercambiar cualquier flujo de datos, generalmente de manera fiable y ordenada. Además es una estructura de datos que permite que dos máquinas se comuniquen entre ellas. |
 
-## Una descripción detallada de las actividades en las cuales se involucró cada integrante del equipo
+## Actividades en las cuales se involucró cada integrante del equipo
 | Integrante | Actividad |
 | --- | --- |
 | Mateo Salazar Zapata | Encargado de hacer la conexión entre el servidor y cliente, lo que consiste en la creación de los métodos para tener una escucha permanente entre ambos, particularmente son funciones o métodos como lo es recibirMensaje(), enviarMensaje(), también se cuenta con métodos para el cierre de la conexión al momento de finalizar el juego cerraClienteTCP() Y cerrarServerTCP(), teniendo en cuenta la funcionalidad de cada clase y constructores propios que cuenta con la creación del socket para la permitir la conexión  |
 |  Francisco Javier Ocampo Betancur   | Estructuración de la dinámica del juego, validación de los métodos principales como creación de barcos posicionarBarcos(), creación de tableros tanto de ataque como tablero propio getMiTablero(), crearMiTablero(), mostrarMiTablero(), tambien incluye la comprobación de los métodos de ataque y validación de posiciones, permaneciendo en los estándares de jugabilidad para batalla Naval|
 
-## alternativas comerciales o libres que respondan o resuelvan el problema, en cierta medida o por completo.
+## Alternativas comerciales o libres que resuelvan el problema, en cierta medida o por completo
 
 Batalla Naval empezó como juego de mesa creado por Milton Bradley Company en 1931, después de su gran acogida por los hogares, se decide exportar la experiencia a un nivel virtual teniendo hoy en día miles de versiones que tiene la misma dinámica del juego original.
 Como por nombrar uno de los productos comerciales del juego encontramos
@@ -45,11 +45,11 @@ https://store.steampowered.com/app/893050/Hasbros_BATTLESHIP/
 
 https://www.microsoft.com/es-co/p/batalla-naval/9nblggh07qbp#
 
-## Quién tiene el problema
+## ¿Quién tiene el problema?
 
 De forma general el juego abarca a personas de todas las edades que deseen divertirse un rato con una partida de Batalla Naval de manera simple y en línea; particularmente a aquellas personas con experiencia en el juego clásico de Batalla Naval o en su defecto que le apasionan los videojuegos, por su parte también surge como un reto en la construcción de la arquitectura del juego aplicando los conocimientos del curso, tales como una conexión TCP adecuada y un manejo óptimo de la lógica interna que permita depurar más fácilmente los posibles inconvenientes que sucedan en el desarrollo.
 
-## descripción detallada del problema, usando requerimientos, casos de uso, historias de usuario, o alguna otra herramienta que permita la descripción detallada del mismo.
+## Descripción del problema
 
 ![logo](https://github.com/fnocampo04/Proyecto-final-programacion-en-Java/blob/ec2bec12d76e9fff970999d17286eee372e46192/Batalla%20Naval/A(1).png)
 
