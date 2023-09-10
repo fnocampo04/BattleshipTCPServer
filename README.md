@@ -19,8 +19,6 @@ Batalla naval (también conocido como BattleShip) es un juego clásico de adivin
 
 ## Descripción del problema
 
-![logo](https://github.com/fnocampo04/Proyecto-final-programacion-en-Java/blob/ec2bec12d76e9fff970999d17286eee372e46192/Batalla%20Naval/A(1).png)
-
 ### Las condiciones que deben ser cubiertas por el análisis y diseño del proyecto se resumen en las siguientes:
 - Como generalidad, se pueden conectar dos jugadores de forma remota mediante una conexión punto a punto en el que un jugador es el servidor que aloja la conexión y otro es el cliente que se conecta.
 
