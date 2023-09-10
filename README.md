@@ -1,5 +1,5 @@
 
-# Batalla Naval
+# Battleship / Batalla Naval
 
 ## Descripción del Juego
 
