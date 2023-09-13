@@ -64,7 +64,7 @@ Algunas consideraciones:
 | 3 | Se atacó y no hubo impacto (se colorea de verde) |
 
 
-- Diagrama de de clases
+- Diagrama de clases
 ![logo](https://github.com/fnocampo04/Proyecto-final-programacion-en-Java/blob/main/Batalla%20Naval/DiagramaClases.jpeg)
 
 
